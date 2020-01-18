@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GitFormComponent } from './git-form.component';
+import { GitsearchComponent } from './gitsearch.component';
 
-describe('GitFormComponent', () => {
-  let component: GitFormComponent;
-  let fixture: ComponentFixture<GitFormComponent>;
+describe('GitsearchComponent', () => {
+  let component: GitsearchComponent;
+  let fixture: ComponentFixture<GitsearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GitFormComponent ]
+      declarations: [ GitsearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GitFormComponent);
+    fixture = TestBed.createComponent(GitsearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
