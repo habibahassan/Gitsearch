@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {GitHttpService} from "../gitHttpService/git-http.service";
+import {GitHttpService} from "../git-httpservice.service";
 import{User} from '../user';
 import {Repository} from '../repository';
 
