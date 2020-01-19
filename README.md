@@ -1,9 +1,10 @@
 # Gitsearch
 ## Description
 Gitsearch is a website where users enter a GitHub username into a form, submit it, and see names and descriptions of that person's public repositories. A person can also look for repositories.
-## Code scaffolding
-
-
+## Setup instruction
+ * open your mobile data and go to your browser
+ * open github and git clone my repository 
+ * send a pull request
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
