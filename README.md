@@ -7,10 +7,9 @@ Gitsearch is a website where users enter a GitHub username into a form, submit i
  * send a pull request
 ## contributing
 For any information pull request is welcome
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
+## Technogies used
+* angular
+* CSS
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
