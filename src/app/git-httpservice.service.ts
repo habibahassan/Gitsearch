@@ -12,6 +12,8 @@ export class GitHttpService {
   
   user:User;
   repositories:Repository[]=[];
+  _URL = 'https://api.github.com/users/';
+  token = '?access_token=d01f850a1305a683194eb7da48b36bc98fa8d0e2';
 
   constructor(private http:HttpClient) { 
     this.user = new User("","","",0,new Date(),0,"");

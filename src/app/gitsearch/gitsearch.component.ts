@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {GitHttpService} from "../git-httpservice.service";
 import{User} from '../user';
 import {Repository} from '../repository';
@@ -22,7 +22,7 @@ export class GitsearchComponent implements OnInit {
     this.repoSearch("habibahassan");   
   }
 
-  //searching for users
+  //search for users
   searchGit(searchSome){
   this.gitHttpService.searchGit(searchSome).then(
     (success)=>{
@@ -35,7 +35,7 @@ export class GitsearchComponent implements OnInit {
   }
 
   
-//getting repositories.
+//searching repositories.
   repoSearch(searchSome){
     this.gitHttpService.getRepos(searchSome).then(
       (success)=>{  
