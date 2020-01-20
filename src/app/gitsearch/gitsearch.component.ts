@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GitHttpService} from "../git-httpservice.service";
-import{User} from '../user';
-import {Repository} from '../repository';
+import{ User } from '../user';
 
 
 @Component({
@@ -10,45 +9,42 @@ import {Repository} from '../repository';
   styleUrls: ['./gitsearch.component.css']
 })
 export class GitsearchComponent implements OnInit {
-  
-  gitUsers: User;
-  repositories:Repository[]=[];
-  
-  
-  constructor(public gitHttpService:GitHttpService) { }
 
-  ngOnInit() {
-    this.searchGit("habibahassan");
-    this.repoSearch("habibahassan");   
-  }
+profile:any;
+repos:any;
+username:string;
 
-  //search for users
-  searchGit(searchSome){
-  this.gitHttpService.searchGit(searchSome).then(
-    (success)=>{
-      this.gitUsers=this.gitHttpService.user;
-    },
-    (error)=>{
-      console.log (error)
-    }
-  );
-  }
+constructor(private GitHttpService:GitHttpService) { 
+  this.GitHttpService.getgitsearchInfo().subscribe(profile =>{
+    console.log(profile);
+    this.profile = profile;
+  });
+  this.GitHttpService.getgitsearchRepos().subscribe(repos => {
+    console.log(repos);
+    this.repos = repos;
+  });
 
-  
-//searching repositories.
-  repoSearch(searchSome){
-    this.gitHttpService.getRepos(searchSome).then(
-      (success)=>{  
+ }
 
-        this.repositories=this.gitHttpService.repositories
-        console.log(this.repositories)
-        
-      },
-      (error)=>{
-        console.log(error)
-      }
-    );
-  }
+ 
+findProfile(){
+  this.GitHttpService.updateProfile(this.username);
+  this.GitHttpService.getgitsearchInfo().subscribe(profile => {
+    console.log(profile);
+    this.profile = profile;
+  });
 
-  
+  this.GitHttpService.getgitsearchRepos().subscribe(repos => {
+    console.log(repos);
+    this.repos = repos;
+  })
 }
+  ngOnInit() {
+    this.username='habibahassan';
+    
+    this.GitHttpService.updateProfile(this.username);
+    this.GitHttpService.getgitsearchInfo().subscribe(profile => this.profile = profile);
+    this.GitHttpService.getgitsearchRepos().subscribe(repos =>  this.repos = repos);
+  }
+}
+

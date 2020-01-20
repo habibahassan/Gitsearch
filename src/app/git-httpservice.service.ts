@@ -1,87 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../environments/environment'
-import {User} from './user';
-import {Repository} from './repository';
+import 'rxjs/add/operator/map';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+
+
+@Injectable()
+  
 export class GitHttpService {
   
-  user:User;
-  repositories:Repository[]=[];
-  _URL = 'https://api.github.com/users/';
-  token = '?access_token=d01f850a1305a683194eb7da48b36bc98fa8d0e2';
+  private username:string;
+  private client_id = '5b9b9759cc8b0d8c106e'
+  private client_secret = 'fa73efb1deb0eed34d9f0996dca5d3b3b50d4169'
 
-  constructor(private http:HttpClient) { 
-    this.user = new User("","","",0,new Date(),0,"");
-  }
-
-  apikey=environment.apiUrl
-  
-//helps in searching for a user name only.
-  searchGit(searchSome:string){
-    interface ApiResponse{
-      login:string;
-      avatar_url:string;
-      location:string;
-      public_repos:number;
-      created_at:Date;
-      followers:number;
-      bio:string;
-    }
-    //link with input as searchSome
-    
-    let searchUser="https://api.github.com/users/"+searchSome+"?access_token="+this.apikey;
-    //promise
-    let promise = new Promise((resolve, reject)=>{
-      this.http.get<ApiResponse>(searchUser).toPromise().then(
-        (results)=>{
-          this.user =results;
-
-          resolve()
-        },(error)=>{
-          alert("User Name Cannot be found")
-          reject()        
-        }
-      )
-    })
-    return promise;
-  }
-//function receiving event and getting data from the url
-  getRepos(searchSome){
-    interface ApiResponse{
-      name:string;      
-      html_url:string;
-      description:string;
-      created_at:Date;
-      updated_at:Date;
-      pushed_at:Date;
-    }
-
-    let searchrepos="https://api.github.com/users/"+searchSome+"/repos?access_token="+this.apikey;
-    let promise = new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse[]>(searchrepos).toPromise().then(
-        (gitreposresults)=>{
-
-          this.repositories =[];
-
-           for (let index =0;index < gitreposresults.length;index++){
-            let repository =new Repository(gitreposresults[index].name,gitreposresults[index].html_url,gitreposresults[index].description,gitreposresults[index].created_at,gitreposresults[index].updated_at,gitreposresults[index].updated_at);
-            //pushing new repo results in repository property
-            this.repositories.push(repository);            
-          }
-          resolve()
-        },
-        (error)=>{
-          alert("Repositories Cannot be found")
-          reject();
-        }
-      );
-    });
-    return promise;
+  constructor(private http:HttpClient){
+    console.log("service is always ready!");
+    this.username = 'habibahassan';
   }
   
+  getgitsearchInfo(){
+  return this.http.get("https://api.github.com/users/" + this.username + "?client_id=" + this.client_id + "&client_secret=" + this.client_secret).map(result=>result);
+  
+  }
+  getgitsearchRepos() {
+    return this.http.get("https://api.github.com/users/" + this.username + "/repos?client_id=" + this.client_id + "&client_secret=" + this.client_secret).map(result=>result)
+  }
+  updateProfile(username: string) {
+    this.username = username;
+  }
 }
+
+ 

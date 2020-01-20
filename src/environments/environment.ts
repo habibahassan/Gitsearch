@@ -4,8 +4,12 @@
 
 export const environment = {
   production: false,
-  acesstokens:"d01f850a1305a683194eb7da48b36bc98fa8d0e2",
-  apiUrl:"https:/api.github.com/users/"
+}
+export class GitHttpService {
+  
+  username:string;
+  client_id = '5b9b9759cc8b0d8c106e'
+  client_secret = 'fa73efb1deb0eed34d9f0996dca5d3b3b50d4169'
 };
 
 /*

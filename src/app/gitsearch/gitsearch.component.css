@@ -1,6 +1,9 @@
-.con{
-    background-color: white;
-    background-size:cover; 
-    background-attachment: fixed;  
+.search{
+  background-image: url(https://bit.ly/2NFaHrh);
+}
+  .avatar{
+    width:50%;
+    height:80%;
   }
+  
   
