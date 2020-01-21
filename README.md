@@ -5,8 +5,12 @@ Gitsearch is a website where users enter a GitHub username into a form, submit i
  * open your mobile data and go to your browser
  * open github and git clone my repository 
  * send a pull request
+ ## project link
+ https://habibahassan.github.io/Gitsearch/.
  ## Author and acknowledgement
 By Habiba Hassan
+## Code Beat
+[![codebeat badge](https://codebeat.co/badges/ae83f2be-c6df-481d-8fa4-e84e3c790cbf)](https://codebeat.co/projects/github-com-habibahassan-gitsearch-master)
 ## contributing
 For any information pull request is welcome
 ## Technogies used
