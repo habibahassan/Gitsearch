@@ -8,6 +8,7 @@ export const environment = {
 export class GitHttpService {
   
   username:string;
+  apiUrl:'https://api.github.com/users/'
   client_id = '5b9b9759cc8b0d8c106e'
   client_secret = 'fa73efb1deb0eed34d9f0996dca5d3b3b50d4169'
 };

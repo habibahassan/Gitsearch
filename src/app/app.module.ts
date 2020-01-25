@@ -10,9 +10,9 @@ import { GitHomeComponent } from './git-home/git-home.component';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { DateCountPipe } from './date-count.pipe';
 import { GitHttpService } from './git-httpservice.service';
-import { HighlightDirective } from './highlight.directive';
+import { MyCustomPipePipe } from './my-custom-pipe.pipe';
+import { RepohighlightDirective } from './repohighlight.directive';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,8 @@ import { HighlightDirective } from './highlight.directive';
     GitHomeComponent,    
     NavbarComponent,
     NotFoundComponent,
-    DateCountPipe,
-    HighlightDirective
+    MyCustomPipePipe,
+    RepohighlightDirective
   ],
   imports: [
     BrowserModule,
