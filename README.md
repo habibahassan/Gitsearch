@@ -17,7 +17,6 @@ For any information pull request is welcome
 * angular
 * CSS
 ## Contact Information
-  * 0725142516
   *  Email:halimaadan92@gmail.com
 ## License
 licensed under the [MIT License](license)
